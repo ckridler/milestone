@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- this should be HTML5 -->
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -6,86 +7,76 @@
     <style type="text/css">
       /* /\/\/\/\/\/\/\/\/ RESET STYLES /\/\/\/\/\/\/\/\/ */
       body{
-        margin:0;
-        padding:0;
+        margin: 0;
+        padding: 0;
       }
 
       img{
-        border:0 none;
-        height:auto;
-        line-height:10;
-        outline:none;
-        text-decoration:none;
+        border: 0 none;
+        height: auto;
+        line-height: 10;
+        outline: none;
+        text-decoration: none;
       }
 
       a img{
-        border:0 none;
-      }
-
-      /* Can affix this tag to images if extra space is showing up below image*/
-      .imageFix{
-        display:block;
+        border: 0 none;
       }
 
       table, td{
-        border-collapse:collapse;
+        border-collapse: collapse;
       }
 
       /*Add to outer table tag (Gmail strips body tag)*/
       #bodyTable{
-        height:100 !important;
-        margin:0;
-        padding:0;
-        width:100 !important;
+        height: 100 !important;
+        margin: 0;
+        padding: 0;
+        width: 100 !important;
       }
 
-      /* --- Normalizing Outlook Styles --- */
-      /* Outlook adds this class to all styles */
-      .ExternalClass{
-        width:100%;
+      .section-container {
+        height: 220px;
+        position: relative; /* position: relative, so position: absolute is relative to position: relative; */
+        display: block;
+      }
+      .circle {
+        width: 180px;
+        height: 180px;
+        border-radius: 80%; /* means this is technically still a rectangle, but border-radius is so large the edges converge to make it look like a circle */
+        font-size: 13px;
+        color: #005670;
+        line-height: 180px;
+        text-align: center;
+        background: #78be20;
+
+        /* following lines control animation (property, speed, easing) */
+        /* these next two lines do the same thing each for different browsers */
+        -webkit-transition: all 0.2s ease;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+        transition: all .2s ease;
+      }
+      .circle:hover {
+        height: 220px; /* must match .section-container height */
+        width: 220px; 
       }
 
-      .ExternalClass,
-      .ExternalClass p,
-      .ExternalClass span,
-      .ExternalClass font,
-      .ExternalClass td,
-      .ExternalClass div{
-        line-height: 100;
-      }
-      /* Table spacing and image sizing */
-      table{
-        mso-table-lspace:0pt;
-        mso-table-rspace:0pt;
+      .copy {
+        font-family: monospace;
+        color: #000;
       }
 
-      img{
-        -ms-interpolation-mode:bicubic;
+      .centered {
+        position: absolute; /* this keeps the circle having the same center point */
+
+        /* because we postion: absolute, we have to put the circle back in the middle, the following does that */
+          left: 50%; /* left 50% means put the left edge of the circle in the middle (which isn't the same thing as "centering") */
+          top: 50%; /* top 50% means put the top edge of the circle in the middle (which isn't the same thing as "centering") */
+          /* translate 50%, basically says move the object -50% left.  50% of the objects width, in this 50% of 220px */
+          /* these next three lines do the same thing each for different browsers */
+          -webkit-transform: translate(-50%, -50%);  /* Chrome, Opera 15+, Safari 3.1+ */
+          -ms-transform: translate(-50%, -50%);  /* IE 9  */
+          transform: translate(-50%, -50%);  /* Firefox 16+, IE 10+, Opera */
       }
-
-      /* --- OSX/iOS --- */
-      body{
-        -webkit-text-size-adjust:100;
-      }
-
-      /* --- Windows Mobile --- */
-      body{
-        -ms-text-size-adjust:100%;
-      }
-      .circle
-      {
-        width:180px;
-        height:180px;
-        border-radius:80%;
-        font-size:13px;
-        color:#005670;
-        line-height:180px;
-        text-align:center;
-        background:#78be20;
-      }
-
-
-
 
     </style>
   </head>
